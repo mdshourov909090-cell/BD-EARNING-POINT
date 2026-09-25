@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CLICK NET BD</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#eef3f8;
+    color:#263448;
+    padding-bottom:90px;
+}
+
+/* Header */
+.header{
+    background:#08b89e;
+    color:white;
+    border-radius:0 0 38px 38px;
+    padding:22px 25px 28px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.icon{
+    width:55px;
+    height:55px;
+    background:rgba(255,255,255,.17);
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:29px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.profile{
+    margin-top:24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.avatar{
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    background:#edf3fa;
+    border:5px solid white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.welcome{
+    flex:1;
+    margin-left:18px;
+}
+
+.welcome small{
+    font-size:20px;
+}
+
+.welcome h2{
+    font-size:28px;
+    margin-top:4px;
+}
+
+.balance{
+    background:#079f89;
+    padding:18px 20px;
+    border-radius:30px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* Main */
+.container{
+    padding:18px 32px;
+}
+
+/* Age */
+.age-box{
+    background:white;
+    border-radius:28px;
+    padding:25px 20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.age-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:25px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.live{
+    background:#e5f5ee;
+    color:#148957;
+    padding:8px 20px;
+    border-radius:25px;
+    font-size:18px;
+}
+
+.age-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.age-item{
+    background:#f7f9fc;
+    border:2px solid #e2e9f1;
+    border-radius:18px;
+    padding:18px 5px;
+    text-align:center;
+}
+
+.age-item strong{
+    display:block;
+    font-size:34px;
+    color:#000;
+}
+
+.age-item span{
+    font-size:17px;
+    color:#65748a;
+}
+
+/* Notice */
+.notice{
+    margin-top:28px;
+    background:white;
+    border-radius:30px;
+    padding:12px 20px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.notice-label{
+    background:#1477ee;
+    color:white;
+    padding:9px 17px;
+    border-radius:22px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.notice-text{
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Projects */
+.projects{
+    margin-top:30px;
+    background:white;
+    border-radius:35px 35px 0 0;
+    padding:30px 20px;
+}
+
+.projects h2{
+    font-size:25px;
+    margin-bottom:25px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px 15px;
+}
+
+.project{
+    text-align:center;
+}
+
+.project-icon{
+    width:82px;
+    height:82px;
+    margin:auto;
+    border-radius:25px;
+    background:#f1f5f9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:39px;
+}
+
+.project p{
+    margin-top:12px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.lock{
+    position:relative;
+}
+
+.lock::after{
+    content:"🔒";
+    position:absolute;
+    right:-4px;
+    bottom:-3px;
+    background:#ff4545;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+}
+
+/* Bottom navigation */
+.bottom{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    height:92px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    box-shadow:0 -3px 15px rgba(0,0,0,.12);
+    z-index:10;
+}
+
+.nav{
+    text-align:center;
+    color:#666;
+    font-size:15px;
+}
+
+.nav-icon{
+    font-size:28px;
+    display:block;
+    margin-bottom:5px;
+}
+
+.home{
+    margin-top:-45px;
+    width:92px;
+    height:92px;
+    background:#079bea;
+    border:7px solid white;
+    box-shadow:0 3px 15px rgba(0,150,255,.3);
+    border-radius:50%;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.home-icon{
+    font-size:30px;
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:25px;
+    }
+
+    .container{
+        padding:18px 32px;
+    }
+
+    .balance{
+        padding:15px;
+        font-size:19px;
+    }
+
+    .age-item strong{
+        font-size:28px;
+    }
+
+    .age-item span{
+        font-size:14px;
+    }
+
+    .project-grid{
+        gap:20px 10px;
+    }
+
+    .project-icon{
+        width:72px;
+        height:72px;
+        font-size:32px;
+    }
+
+    .project p{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+
+    <div class="top">
+        <div class="icon">☰</div>
+
+        <div class="logo">CLICK NET BD</div>
+
+        <div class="icon">🔔</div>
+    </div>
+
+    <div class="profile">
+
+        <div class="avatar">👤</div>
+
+        <div class="welcome">
+            <small>WELCOME BACK,</small>
+            <h2>MEMBER </h2>
+        </div>
+
+        <div class="balance">
+            💰 ৳ 00
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <!-- Site Age -->
+    <section class="age-box">
+
+        <div class="age-title">
+            <span>◷ সাইটের বয়স</span>
+            <span class="live">● Live</span>
+        </div>
+
+        <div class="age-grid">
+
+            <div class="age-item">
+                <strong>156</strong>
+                <span>দিন</span>
+            </div>
+
+            <div class="age-item">
+                <strong>11</strong>
+                <span>ঘন্টা</span>
+            </div>
+
+            <div class="age-item">
+                <strong>59</strong>
+                <span>মিনিট</span>
+            </div>
+
+            <div class="age-item">
+                <strong>19</strong>
+                <span>সেকেন্ড</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Notice -->
+    <div class="notice">
+
+        <span class="notice-label">Notice</span>
+
+        <span class="notice-text">ঘরে বসে কোনো প্রকার ইনভেস্টমেন্ট ছাড়া একদম ফ্রি তে কাজ করতে‌ পারবেন আমাদের ওয়েবসাইটে। যত বেশি রেফার তত‌ বেশি বেশি সকলে রেফার করে টিম তৈরি করেন।
+        </span>
+
+    </div>
+
+
+    <!-- Projects -->
+    <section class="projects">
+
+        <h2>🚀 আমাদের সাইট এর কাজ সমূহ 🚀</h2>
+
+        <div class="project-grid">
+
+            <div class="project">
+                <div class="project-icon">ⓕ</div>
+                <p>ফেসবুক শেয়ার</p>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">✉️</div>
+                <p>জিমেইল সেল</p>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">◎</div>
+                <p>ইনস্টা সেল</p>
+            </div>
+
+            <div class="project lock">
+                <div class="project-icon">💼</div>
+                <p>জব পোস্ট</p>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">👑</div>
+                <p>লিডারশিপ</p>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">🎯</div>
+                <p>টার্গেট বোনাস</p>
+            </div>
+
+            <div class="project">
+                <div class="project-icon">👥</div>
+                <p>রেফার</p>
+            </div>
+
+            <div class="project lock">
+                <div class="project-icon">🎁</div>
+                <p>গিফট কোড</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- Bottom Navigation -->
+<nav class="bottom">
+
+    <div class="nav">
+        <span class="nav-icon">🎧</span>
+        Help
+    </div>
+
+    <div class="nav">
+        <span class="nav-icon">💳</span>
+        Wallet
+    </div>
+
+    <div class="home">
+        <span class="home-icon">⌂</span>
+        HOME
+    </div>
+
+    <div class="nav">
+        <span class="nav-icon">👥</span>
+        Team
+    </div>
+
+    <div class="nav">
+        <span class="nav-icon">👤</span>
+        Profile
+    </div>
+
+</nav>
+
+</body>
+  </html>
